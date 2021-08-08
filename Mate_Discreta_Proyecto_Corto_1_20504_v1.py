@@ -144,9 +144,14 @@ while Loop:
                     print("Ingrese un número válido")
                     # Se repite el loop
             
-            NumsAleatorios(n,a,c,mod,s)
-            
-
+            # Crear un array del tamaño de la cantidad de números que se quiere producir
+            Aleatorios =[0]*n
+            Aleatorios[0] = s
+            for x in range (1,n):
+                Aleatorios[x] = (a*Aleatorios[(x-1)]+1)%mod
+                
+            print(Aleatorios)
+                
         if Menu == 3:
             # Salir del programa
             print ("\n  Gracias por utilizar el programa\n")
@@ -160,4 +165,13 @@ while Loop:
         print ('El valor ingresado no es válido')
 
 
-        
+# RESULTADOS OBTENIDOS
+
+# Primer inciso
+# [883, 1548, 1209, 1312, 853, 1246, 992, 1325, 535, 519, 1489, 582, 1517, 1237, 82, 744, 339]
+
+# Segundo inciso
+# [2, 11, 10, 5, 3, 16, 12, 15, 7, 13, 20, 9, 0, 1, 6, 8, 18, 22, 19, 4]
+
+# Contraseña
+#
