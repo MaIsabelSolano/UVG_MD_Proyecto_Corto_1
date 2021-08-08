@@ -26,18 +26,7 @@ while Loop:
             
             # Pedir el arreglo
             mod = int(input("¿Qué módulo desea utilizar?: "))
-            
-            # Hay que pedir la cantidad de números pero esta no puede superar al número de módulo
-            #verificador = True
-            #while verificador:
-            #    cant = int(input("Ingese la cantidad de números que desea ingresar (debe ser menor que el número de módulo): "))
-            #    if cant > mod:
-            #        print ("Por favor ingrese una cantidad válida")
-            #    if cant <= mod:
-            #        # Se puede continuar
-            #        verificador = False
-            # Ya no es necesaria esta parte porque siempre se va a ingresar un array con la cantidad de elementos del módulo
-                    
+                      
             Numeros = [None]*mod #Originalmente decía *cant
             i = 0
             print ("Ingrese los números que desee ordenar (deben ser mayores al módulo ingresado)")
@@ -54,7 +43,7 @@ while Loop:
                         if Numeros[m] == None:
                             # Se ingresa ahí
                             Numeros[m] = num
-                            print (f"{num} ingresado...")
+                            #print (f"{num} ingresado...")
                             verificador = False # Salir el loop de verificación
                         elif Numeros[m] != None:
                             # Hubo un choque
@@ -69,7 +58,7 @@ while Loop:
                                 if Numeros[m] == None:
                                     # Se guarda ahí
                                     Numeros[m] = num
-                                    print (f"{num} ingresado....")
+                                    #print (f"{num} ingresado....")
                                     #verificador2 = False # Salir del loop de colisiones
                                     verificador = False # Salir del loop de verificaión
                                     break
@@ -148,7 +137,7 @@ while Loop:
             Aleatorios =[0]*n
             Aleatorios[0] = s
             for x in range (1,n):
-                Aleatorios[x] = (a*Aleatorios[(x-1)]+1)%mod
+                Aleatorios[x] = (a*Aleatorios[(x-1)]+c)%mod
                 
             print(Aleatorios)
                 
@@ -171,7 +160,14 @@ while Loop:
 # [883, 1548, 1209, 1312, 853, 1246, 992, 1325, 535, 519, 1489, 582, 1517, 1237, 82, 744, 339]
 
 # Segundo inciso
-# [2, 11, 10, 5, 3, 16, 12, 15, 7, 13, 20, 9, 0, 1, 6, 8, 18, 22, 19, 4]
+# [2, 4, 14, 18, 15, 0, 17, 10, 21, 7, 6, 1, 22, 12, 8, 11, 3, 9, 16, 5]
 
 # Contraseña
-#
+Password = [0]*18
+for x in range(0,18):
+    if x == 0 or x == 1:
+        Password[x] = 1
+    else:
+        Password[(x)] = Password[x-2] + Password[(x-1)]
+    
+print(f"Contraseña: {Password[17]}")
